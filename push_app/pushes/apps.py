@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class PushesConfig(AppConfig):
+class PushConfig(AppConfig):
     name = 'pushes'

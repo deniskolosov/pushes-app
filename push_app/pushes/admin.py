@@ -1,3 +1,22 @@
 from django.contrib import admin
+from django.contrib.admin import AdminSite
+from django.template.response import TemplateResponse
+from django.urls import path
 
-# Register your models here.
+from .forms import PushForm
+from .models import Push
+
+
+@admin.register(Push)
+class PushAdmin(admin.ModelAdmin):
+
+    search_fields = ["name"]
+    exclude = ['send_at', 'times_sent', 'is_sent']
+    form = PushForm
+
+    change_form_template = 'admin/add_push.html'
+
+
+
+
+

@@ -6,19 +6,19 @@ entryPoints:
     # http
     address: ":80"
 
-  web-secure:
-    # https
-    address: ":443"
+#  web-secure:
+#    # https
+#    address: ":443"
 
-certificatesResolvers:
-  letsencrypt:
-    # https://docs.traefik.io/master/https/acme/#lets-encrypt
-    acme:
-      email: "denis.kolosov@gmail.com"
-      storage: /etc/traefik/acme/acme.json
-      # https://docs.traefik.io/master/https/acme/#httpchallenge
-      httpChallenge:
-        entryPoint: web
+#certificatesResolvers:
+#  letsencrypt:
+#    # https://docs.traefik.io/master/https/acme/#lets-encrypt
+#    acme:
+#      email: "denis.kolosov@gmail.com"
+#      storage: /etc/traefik/acme/acme.json
+#      # https://docs.traefik.io/master/https/acme/#httpchallenge
+#      httpChallenge:
+#        entryPoint: web
 
 http:
   routers:
@@ -31,22 +31,22 @@ http:
         - csrf
       service: django
 
-    web-secure-router:
-      rule: "Host(`212.71.235.219`) || Host(`www.212.71.235.219`)"
-      entryPoints:
-        - web-secure
-      middlewares:
-        - csrf
-      service: django
-      tls:
-        # https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
+#    web-secure-router:
+#      rule: "Host(`212.71.235.219`) || Host(`www.212.71.235.219`)"
+#      entryPoints:
+#        - web-secure
+#      middlewares:
+#        - csrf
+#      service: django
+#      tls:
+#        # https://docs.traefik.io/master/routing/routers/#certresolver
+#        certResolver: letsencrypt
 
   middlewares:
     redirect:
       # https://docs.traefik.io/master/middlewares/redirectscheme/
       redirectScheme:
-        scheme: https
+        scheme: http
         permanent: true
     csrf:
       # https://docs.traefik.io/master/middlewares/headers/#hostsproxyheaders

@@ -1,14 +1,19 @@
 from django.db import models
 
 
-class Options(models.Model):
-    name = models.CharField(max_length=256)
-
-
-class Pushes(models.Model):
+class Push(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField(max_length=256)
     created_at = models.DateTimeField(auto_now_add=True)
-    sent_at = models.DateTimeField(blank=True, null=True)
+    send_at = models.DateTimeField(blank=True, null=True)
     is_sent = models.BooleanField(default=False)
-    times_sent = models.BooleanField(default=0)
+    push_image = models.ImageField()
+    times_sent = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name_plural = "Pushes"
+
+
+class Option(models.Model):
+    name = models.CharField(max_length=256)
+

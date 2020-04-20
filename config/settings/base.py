@@ -74,7 +74,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "push_app.users.apps.UsersConfig",
-    "push_app.pushes.apps.PushesConfig"
+    "push_app.pushes.apps.PushConfig"
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
