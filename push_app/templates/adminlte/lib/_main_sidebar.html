@@ -1,0 +1,12 @@
+{% extends 'adminlte/lib/_main_sidebar.html' %}
+  <ul class="sidebar-menu">
+      {% block nav_links_outer %}
+      {% block nav_links %}
+          <li>
+              <a href="/admin/pushes/push/">
+                  <i class="fa fa-dashboard"></i> <span>Pushes</span>
+              </a>
+          </li>
+      {% endblock nav_links %}
+      {% endblock nav_links_outer %}
+  </ul>
